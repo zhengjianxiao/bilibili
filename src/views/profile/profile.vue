@@ -1,47 +1,48 @@
 <template>
   <div>
-    <navbar>
-      <div slot="left"><img src="~@/assets/img/logo.png" alt="" class="navleft"></div>
-      <div slot="center">center</div>
-      <div slot="right" class="navright">
-        <img src="~@/assets/img/default_img.jpg" alt="" >
-        <div>下载App</div>
-      </div>
-    </navbar>
+    <profilenav :userimg="detail.user_img"/>
+    <div><img src="~@/assets/img/bannerTop_new.png" class="banner-top"/></div>
+    <profiledetail  :detail="detail"
+                    @editclick="editclick"/>
+    <middlenav />
     <h2>profile</h2>
   </div>
 </template>
 
 <script>
-import navbar from "@/components/common/navbar/NavBar"
+  import profilenav from "./childcomps/profilenav.vue"
+  import profiledetail from "./childcomps/profiledetail.vue"
+  import middlenav from "./childcomps/middlenav.vue"
   export default {
     name : "profile",
     components : {
-      navbar
+      profilenav,
+      profiledetail,
+      middlenav
+    },
+    data() {
+      return {
+        detail :{}
+      }
+    },
+    methods: {
+      async getprofiledata() {
+        const res =  await this.$http.get('/user/' + localStorage.getItem('id'))
+        this.detail = res.data[0]
+      },
+      editclick() {
+        this.$router.push("/edit")
+      }
+    },
+    created() {
+      this.getprofiledata()
     }
   }
 </script>
 
 <style lang="less" scoped>
-  .navleft{
-    height: 12.222vw;
-  }
-  .navright{
-    display: flex;
-    justify-self: center;
-    align-content: center;
-    
-    img{
-      height: 8.333vw;
-      vertical-align: middle;
-    }
-    div{
-      height : 30px;
-      background-color: pink;
-      color : white;
-      font-size: 12px;
-      margin: 0;
-      padding: 0;
-    }
-  }
+   .banner-top{
+     width: 100%;
+     height: 27.778vw;
+   }
 </style>

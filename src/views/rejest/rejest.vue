@@ -45,7 +45,9 @@ import rejestbtn from "./childcomps/rejestbtn"
         const res = await this.$http.post("/register" , this.modul)
         this.$msg.fail(res.data.msg)
         if(res.data.code == 200) {
-          setTimeout(() => this.$router.push("/home") ,1000)
+          localStorage.setItem("id" , res.data.id)
+          localStorage.setItem("token" , res.data.objtoken)
+          setTimeout(() => this.$router.push("/profile") ,1000)
         }
        }else{
        this.$msg.fail("格式不正确，请重新输入！")

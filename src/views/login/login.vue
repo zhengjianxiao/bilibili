@@ -1,7 +1,7 @@
 <template>
   <div class="rejest">
     <navbar class="navbar">
-      <div slot="center">登入bilibili</div>
+      <div slot="center">登录bilibili</div>
       <div slot="right" @click="rightclick">用户注册</div>
     </navbar>
     <rejesttext label="账号" placeholder="请输入账号" :relu="relu" class="rejestname"
@@ -42,13 +42,14 @@ import rejestbtn from "../rejest/childcomps/rejestbtn"
         const res = await this.$http.post("/login" , this.modul)
         if(res.data.code == 200) {
           this.$msg.fail(res.data.msg)
-          setTimeout(() => this.$router.push("/home") ,1000)
-        }else if(res.data.code == 301) {
-          this.$msg.fail("用户名不存在，请注册账号")
-          this.$router.push("/rejest")
+          localStorage.setItem("token" , res.data.token)
+          localStorage.setItem("id" , res.data.id)
+          setTimeout(() => this.$router.push("/profile") ,1000)
+        }else if(res.data.code == 301 || res.data.code == 302) {
+          this.$msg.fail(res.data.msg)
         }
        }else{
-       this.$msg.fail("格式不正确，请重新输入！")
+       this.$msg.fail(res.data.msg)
        }
      },
      rightclick() {
