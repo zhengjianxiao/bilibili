@@ -1,17 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import rejest from '../views/rejest/rejest'
-const home = () => import('../views/Home')
+const home = () => import('../views/home/home')
 const login = () => import('../views/login/login')
 const profile = () => import('../views/profile/profile.vue')
 const edit = () => import('../views/edit/edit.vue')
+const article = () => import('../views/article/article')
 Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/',
-    name: 'rejest',
-    component: profile
+    name: 'home',
+    component: home,
+    meta: {
+      keepalive: true
+    }
+  },
+  {
+    path: '/article/:id',
+    name: 'article',
+    component: article
   },
   {
     path: '/rejest',
@@ -21,7 +30,10 @@ Vue.use(VueRouter)
   {
     path: '/home',
     name: 'home',
-    component: home
+    component: home,
+    meta: {
+      keepalive: true
+    }
   },
   {
     path: '/login',

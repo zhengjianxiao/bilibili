@@ -1,17 +1,20 @@
 <template>
-  <div>
-    <navbar>
+  <div >
+    <navbar class="navbar">
       <div slot="left"><img src="~@/assets/img/logo.png" alt="" class="navleft"></div>
       <div slot="center" class="navcenter">
         <van-icon name="search" />
         <input placeholder="请输入查询内容"/>
       </div>
       <div slot="right" class="navright">
-        <img src="user_img" alt="" v-if="user_img">
-        <img src="~@/assets/img/default_img.jpg" alt="" v-else>
-        <div>下载App</div>
+        <div @click="$route.path == ('/profile') ? $route : $router.push('/profile')">
+          <img :src="detail.user_img" alt="" v-if="detail.user_img">
+          <img src="~@/assets/img/default_img.jpg" alt="" v-else>
+        </div>
+        <div class="download">下载App</div>
       </div>
     </navbar>
+    <div class="navlast"></div>
   </div>
 </template>
 
@@ -22,11 +25,38 @@ import navbar from "@/components/common/navbar/NavBar"
     components : {
       navbar
     },
-    props : ["user_img"]
+    // props : ["user_img"],
+    data() {
+      return {
+        detail: {}
+      }
+    },
+    methods : {
+      async getprofiledata() {
+        const res =  await this.$http.get('/user/' + localStorage.getItem('id'))
+        this.detail = res.data[0]
+      },
+    },
+    created() {
+      if(localStorage.getItem('id')){
+        this.getprofiledata()
+      } 
+    }
   }
 </script>
 
 <style lang="less" scoped>
+   .navbar{
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     z-index: 14444441;
+   }
+   .navlast{
+      height: 12.22vw;
+      background-color: #fff;
+   }
    .navleft{
     height: 12.222vw;
   }
@@ -59,10 +89,11 @@ import navbar from "@/components/common/navbar/NavBar"
     height: 12.222vw;
     img{
       height: 8.333vw;
+      width: 8.333vw;
       border-radius: 50%;
       vertical-align: middle;
     }
-    div{
+    .download{
       height : 8.333vw;
       background-color: pink;
       color : white;

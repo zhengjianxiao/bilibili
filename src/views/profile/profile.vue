@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <profilenav :userimg="detail.user_img"/>
+  <div class="profile">
+    <profilenav />
     <div><img src="~@/assets/img/bannerTop_new.png" class="banner-top"/></div>
     <profiledetail  :detail="detail"
-                    @editclick="editclick"/>
-    <middlenav />
-    <h2>profile</h2>
+                    @editclick="editclick"
+                    />
+    <middlenav @actclick="actclick"/>
+    <div class="profilelast" style="padding-top:13.889vw" v-if="isactive">到达尽头啦~</div>
+    <div class="profilelast" v-else>
+      <img src="~@/assets/img/videobg.jpg" />
+    </div>
   </div>
 </template>
 
@@ -22,7 +26,8 @@
     },
     data() {
       return {
-        detail :{}
+        detail :{},
+        isactive: true
       }
     },
     methods: {
@@ -32,6 +37,9 @@
       },
       editclick() {
         this.$router.push("/edit")
+      },
+      actclick() {
+        this.isactive = ! this.isactive
       }
     },
     created() {
@@ -44,5 +52,13 @@
    .banner-top{
      width: 100%;
      height: 27.778vw;
+   }
+   .profilelast{
+     font-size: 18px;
+     text-align: center;
+     img{
+       width: 100%;
+       height: 100%;
+     }
    }
 </style>

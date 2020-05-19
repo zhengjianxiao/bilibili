@@ -1,13 +1,24 @@
 <template>
   <div class="middlenav">
-    <div>动态</div>
-    <div>视频</div>
+    <div :class="{active: isactive}" @click="actclick">动态</div>
+    <div :class="{active: !isactive}" @click="actclick">视频</div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "middlenav"
+    name: "middlenav",
+    data() {
+      return {
+        isactive: true
+      }
+    },
+    methods: {
+      actclick() {
+        this.isactive = !this.isactive
+        this.$emit("actclick")
+      }
+    }
   }
 </script>
 
@@ -20,8 +31,12 @@
     line-height: 40px;
     font-size: 16px;
     padding: 0 15px;
+    border-bottom: 1px solid #ccc;
     div{
       padding: 0 10px;
     }
+  }
+  .active{
+    color: pink;
   }
 </style>

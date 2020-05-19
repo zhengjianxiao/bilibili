@@ -26,11 +26,11 @@
      <div class="detail-bottom">
        <div>
         <h2>{{detail.name}}</h2>
-        
-        <p v-if="detail.dsc">{{detail.dsc}}</p>
+        <p v-if="detail.user_desc" :class="{'hidden' : hidden}">{{detail.user_desc}}</p>
         <p v-else>这个人很神秘，什么也没有写</p>
        </div>
-       <div>收起</div>
+       <div @click="collect" v-if="!hidden">收起</div>
+       <div @click="collect" v-else>展开</div>
      </div>
   </div>
 </template>
@@ -39,9 +39,17 @@
   export default {
     name: "profiledetail",
     props: ["detail"],
+    data() {
+      return {
+        hidden: false
+      }
+    },
     methods: {
       editclick() {
         this.$emit("editclick")
+      },
+      collect() {
+         return this.hidden = !this.hidden
       }
     }
   }
@@ -51,13 +59,14 @@
   .detail{
     background-color: #fff;
     padding: 0 2.778vw;
-    border-bottom: 5px solid #eee;
+    border-bottom: 1px solid #ccc;
   }
   .detail-top{
     display: flex;
     justify-content: space-between;
     img{
       height: 23.611vw;
+      width: 23.611vw;
       border-radius: 50%;
       margin-top: -2.778vw;
     
@@ -96,17 +105,26 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 0 1.389vw;
-    
     h2{
       font-weight: 400;
     }
     p{
       color: #555;
       margin: 2.778vw 0;
+      width: 69.444vw;
+      word-wrap: break-word;
+      word-break: normal;
     }
     div:nth-child(2){
       font-size: 4.444vw;
       color: rgb(43, 43, 224);
+      position: absolute;
+      right: 5.556vw;
+      top: 72.222vw;
     }
+  }
+  .hidden{
+    overflow: hidden;
+    white-space: nowrap;
   }
 </style>
