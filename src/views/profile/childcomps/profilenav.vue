@@ -1,7 +1,9 @@
 <template>
   <div >
     <navbar class="navbar">
-      <div slot="left"><img src="~@/assets/img/logo.png" alt="" class="navleft"></div>
+      <div slot="left"  @click="$route.path == ('/home') ? $route : $router.push('/home')">
+        <img src="~@/assets/img/logo.png" alt="" class="navleft">
+      </div>
       <div slot="center" class="navcenter">
         <van-icon name="search" />
         <input placeholder="请输入查询内容"/>
@@ -11,7 +13,7 @@
           <img :src="detail.user_img" alt="" v-if="detail.user_img">
           <img src="~@/assets/img/default_img.jpg" alt="" v-else>
         </div>
-        <div class="download">下载App</div>
+        <div class="download" @click="$route.path == ('/profile') ? $route : $router.push('/profile')">个人中心</div>
       </div>
     </navbar>
     <div class="navlast"></div>
