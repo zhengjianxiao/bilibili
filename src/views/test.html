@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const data = [
+    {comment_id: 1 , user_id: 41 , comment_content: "what?" , parent_id: null},
+    {comment_id: 2 , user_id: 07 , comment_content: "that" , parent_id: null},
+    {comment_id: 3 , user_id: 23 , comment_content: "this" , parent_id: "1"},
+    {comment_id: 4 , user_id: 54 , comment_content: "title" , parent_id: "4"},
+    {comment_id: 5 , user_id: 65 , comment_content: "isa" , parent_id: "8"},
+    {comment_id: 6 , user_id: 21 , comment_content: "john" , parent_id: "3"},
+    {comment_id: 7 , user_id: 06 , comment_content: "kan" , parent_id: "6"},
+    {comment_id: 8 , user_id: 13 , comment_content: "mary" , parent_id: "5"},
+    {comment_id: 9 , user_id: 18 , comment_content: "users" , parent_id: null}
+  ]
+
+  // const res = []
+  // for(s of data) {
+  //   if(s.parent_id == null) {
+  //     res.push(s)
+  //     for(i of data) {
+  //       if(i.parent_id == s.comment_id) {
+  //         s.child.push(i)
+  //         for(j of data) {
+  //           if(j.parent_id == i.comment_id) {
+  //             i.child.push(j)
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // console.log(res)
+
+
+  function handle(tem) {
+    const result = []
+    for(s of data) {
+      if(s.parent_id == tem) {
+        result.push(s)
+        s.child = handle(s.comment_id)
+      }
+    }
+    return result
+  }
+  const res = handle(null)
+  console.log(res)
+</script>
+</html>

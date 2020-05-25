@@ -41,6 +41,7 @@ export default {
       if(res.data){
         this.$emit('lengthselect',res.data.length)
       }
+      console.log(res.data)
       this.commentList = this.changeCommentData(res.data)
     },
     changeCommentData(data) {
