@@ -32,4 +32,16 @@
     line-height : 11.111vw;
     text-align : center;
   }
+    @media only screen and (min-width: 768px) {
+      .rejestbtn{
+  width : 80vw;
+  margin: 0 auto;
+  padding-top: 2.556vw;
+}
+  .btn{
+    width : 80%;
+    height : 6.111vw;
+    line-height : 6.111vw;
+  }
+    }
 </style>

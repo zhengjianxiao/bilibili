@@ -60,11 +60,20 @@ import rejestbtn from "./childcomps/rejestbtn"
   }
 </script>
 
-<style  scoped>
+<style lang="less" scoped>
   .navbar{
     background-color: #fff;
   }
   .rejestname{
     margin: 4.167vw 0;
   }
+    @media only screen and (min-width: 768px) {
+      .navbar{
+        width: 80vw;
+        margin: 0 auto;
+    }
+  .rejestname{
+    margin: 2.167vw 0;
+  }
+    }
 </style>

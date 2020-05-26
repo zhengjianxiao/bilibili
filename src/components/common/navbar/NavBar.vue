@@ -31,4 +31,19 @@
     flex : 1;
     font-size: 5.556vw;
   }
+
+  @media only screen and (min-width: 768px) {
+    .navbar{
+    height : 6.222vw;
+    line-height: 6.222vw;
+  }
+  .left , .right {
+    width : 20.001vw;
+    font-size: 2vw;
+  }
+  .center{
+    flex : 1;
+    font-size: 3.556vw;
+  }
+  }
 </style>

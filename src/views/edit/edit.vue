@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="edit">
     <profilenav class="profilenav" :user_img="detail.user_img"/>
     <div class="upload">
       <van-uploader :after-read="afterRead" preview-size="100vw" class="uploadimg"/>
@@ -128,5 +128,24 @@ import editbanner from "./childcomps/editbanner.vue"
     padding: 2.778vw;
     text-align: center;
     box-shadow: 0 0 0.278vw rgba(0 , 0 , 0 , 0.3);
+  }
+  @media only screen and (min-width: 768px) {
+    .edit{
+      width: 80vw;
+      margin: 0 auto;
+    }
+    .profilenav{
+    margin-bottom: 1.22vw;
+  }
+  .totalimg{
+    img{
+      height: 7.222vw;
+      width: 7.222vw;
+    }
+  }
+  .editback{
+    font-size: 1.444vw;
+    margin-top: 2.167vw;
+  }
   }
 </style>

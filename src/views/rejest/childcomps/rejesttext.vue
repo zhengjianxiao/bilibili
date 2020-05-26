@@ -4,7 +4,8 @@
                :placeholder="placeholder" 
                :type="type" 
                :relu="relu"
-               v-model="content"/>
+               v-model="content"
+               class="text"/>
   </div>
 </template>
 
@@ -34,5 +35,12 @@
 </script>
 
 <style lang="less" scoped>
-
+@media only screen and (min-width: 768px) {
+  .text{
+    width: 80vw;
+    margin: 0 auto;
+    height: 6.222vw;
+    line-height: 4.111vw;
+  }
+}
 </style>

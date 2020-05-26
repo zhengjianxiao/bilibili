@@ -1,7 +1,7 @@
 <template>
   <div class="profile">
     <profilenav />
-    <div><img src="~@/assets/img/bannerTop_new.png" class="banner-top"/></div>
+    <div class="banimg"><img src="~@/assets/img/bannerTop_new.png" class="banner-top"/></div>
     <profiledetail  :detail="detail"
                     @editclick="editclick"
                     />
@@ -52,13 +52,35 @@
    .banner-top{
      width: 100%;
      height: 27.778vw;
+     vertical-align: middle;
    }
    .profilelast{
-     font-size: 18px;
+     font-size: 5vw;
      text-align: center;
      img{
        width: 100%;
        height: 100%;
      }
    }
+   @media only screen and (min-width: 768px) {
+     .profile{
+       background-color: #f4f4f4;
+     }
+     .banimg{
+       margin: 0 auto;
+       width: 80vw;
+       img{
+         height: 13vw;
+       }
+     }
+  
+   .profilelast{
+     font-size: 2vw;
+     text-align: center;
+     img{
+       width: 80vw;
+       height: 40vw;
+     }
+   }
+}
 </style>

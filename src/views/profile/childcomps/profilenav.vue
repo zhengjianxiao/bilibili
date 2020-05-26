@@ -106,4 +106,44 @@ import navbar from "@/components/common/navbar/NavBar"
       border-radius: 1.389vw;
     }
   }
+
+  @media only screen and (min-width: 768px) {
+     .navbar{
+       width: 80vw;
+       height: 100px;
+       margin: 0 auto;
+   }
+   .navlast{
+      height: 100px;
+      background-color: #f4f4f4;
+   }
+   .navleft{
+    height: 100px;
+  }
+  .navcenter{
+    :nth-child(1){
+      left: 4.944vw;
+      font-size: 1.889vw;
+    }
+    input{
+      font-size: 1.889vw;
+    }
+  }
+  .navright{
+    height: 100px;
+    justify-content: center;
+    img{
+      height: 5.333vw;
+      width: 5.333vw;
+    }
+    .download{
+      height : 4.333vw;
+      font-size: 1.333vw;
+      padding: 0 0.356vw;
+      line-height: 4.333vw;
+      border-radius: 1.389vw;
+    }
+  }
+
+   }
 </style>

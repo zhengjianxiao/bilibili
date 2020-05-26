@@ -51,4 +51,18 @@
     width: 100%;
     background: linear-gradient(0deg,rgba(0,0,0,.85),transparent);
   }
+  @media only screen and (min-width: 768px) {
+  .detailitem{
+    width:30%;
+    height: 30%;
+    img{
+      width: 100%;
+      margin: 2.778vw 0;
+    }
+    p{
+      font-size: 1.333vw;
+      padding: 0.389vw;
+    }
+  }
+}
 </style>

@@ -59,7 +59,7 @@
   .detail{
     background-color: #fff;
     padding: 0 2.778vw;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 0.278vw solid #ccc;
   }
   .detail-top{
     display: flex;
@@ -126,5 +126,53 @@
   .hidden{
     overflow: hidden;
     white-space: nowrap;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .detail{
+      width: 80vw;
+      margin: 0 auto;
+      border-bottom: 0.0278vw solid #ccc;
+    }
+  .detail-top{
+    img{
+      height: 15.611vw;
+      width: 15.611vw;   
+    }
+  }
+  .top-right{
+    width: 41.111vw;
+  }
+  .right-top{
+    font-size: 1.889vw;
+    margin: 1.778vw 0;
+    i{
+      width: 0.178vw;
+      height: 3.556vw;
+    }
+  }
+  .edit{
+    width: 100%;
+    color: pink;
+    height: 4.333vw;
+    line-height: 4.333vw;
+    font-size: 1.944vw;
+    margin-bottom: 2.556vw;
+  }
+  .detail-bottom{
+     position: relative;
+    h2{
+      font-weight: 400;
+    }
+    p{
+      margin: 1.778vw 0;
+      width: 69.444vw;
+    }
+    div:nth-child(2){
+      font-size: 2.444vw;
+      right: 5.556vw;
+      top: 1vw;
+    }
+  }
   }
 </style>

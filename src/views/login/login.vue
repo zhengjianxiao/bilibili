@@ -66,4 +66,13 @@ import rejestbtn from "../rejest/childcomps/rejestbtn"
   .rejestname{
     margin: 4.167vw 0;
   }
+  @media only screen and (min-width: 768px) {
+    .navbar{
+      width: 80vw;
+      margin: 0 auto;
+  }
+  .rejestname{
+    margin: 2.167vw 0;
+  }
+  }
 </style>
